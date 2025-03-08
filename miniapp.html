@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Привет, это мини-приложение!</h1>
+    <button onclick="sendData()">Отправить данные боту</button>
+
+    <script>
+        function sendData() {
+            const data = { message: "Привет от мини-приложения!" };
+            if (window.Telegram) {
+                Telegram.WebApp.sendData(JSON.stringify(data));
+            } else {
+                alert("Данные отправлены: " + JSON.stringify(data));
+            }
+        }
+    </script>
+</body>
+</html>
